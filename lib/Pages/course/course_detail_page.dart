@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'moon_phase.dart';
 
 class CourseDetailPage extends StatefulWidget {
   final String title;
@@ -7,6 +8,7 @@ class CourseDetailPage extends StatefulWidget {
   final String content;
 
   final bool isDarkMode;
+  final String? simulation;
   
   const CourseDetailPage({
     super.key,
@@ -15,6 +17,7 @@ class CourseDetailPage extends StatefulWidget {
     required this.image,
     required this.content,
     required this.isDarkMode,
+    this.simulation,
   });
   @override
   State<CourseDetailPage> createState() => _CourseDetailPageState();
@@ -69,6 +72,34 @@ class _CourseDetailPageState extends State<CourseDetailPage>{
                 height: 1.5,
               ),
               ),
+
+              if(widget.simulation != null)...[
+                const SizedBox(height: 24,),
+              ElevatedButton.icon(
+                icon: const Icon(Icons.science),
+                label: const Text("Tampilkan simulasi"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: 
+                  widget.isDarkMode ? Colors.tealAccent[700] : Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12, 
+                
+                  ),
+                ),
+                onPressed: (){
+                  if(widget.simulation == 'moon_phase'){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: 
+                      (_) => const MoonPhasePage(),
+                      ),
+                    );
+                  }
+                },
+                ),
+              ],
             ]
           ],
         ),

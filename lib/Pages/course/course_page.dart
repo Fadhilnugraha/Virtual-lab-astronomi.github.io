@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'moon_phase.dart';
 
 class CoursePage extends StatelessWidget {
   final bool isDarkMode;
@@ -6,25 +7,22 @@ class CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> courses = [
+    final List<Map<String, dynamic>> courses = [
       {
-        'title': 'Astronomi Dasar',
-        'description': 'Pelajari struktur alam semesta dari planet hingga galaksi.',
-        'image': 'assets/universe.png',
+        'title': 'Gerhana bulan',
+        'description': 'Pelajari bagaimana bentuk gerhana',
+        'image': 'assets/moon2.png',
         'content' : '''
+        
         **Pengantar:**
-Astronomi adalah ilmu yang mempelajari benda-benda langit seperti planet, bintang, galaksi, dan fenomena luar angkasa lainnya.
-
-**Materi Singkat:**
-- Tata Surya terdiri dari Matahari dan delapan planet.
-- Cahaya bintang berasal dari reaksi fusi nuklir di dalam inti bintang.
-- Galaksi kita disebut **Bima Sakti (Milky Way)**.
-- Jarak antar bintang diukur dalam satuan **tahun cahaya**.
-- Alat utama untuk pengamatan astronomi adalah **teleskop**.
+fenomena alam ketika Bulan tertutup sebagian atau seluruhnya oleh bayangan Bumi saat Bumi berada di antara Matahari dan Bulan, 
+menghalangi cahaya Matahari yang biasanya menyinari Bulan, dan terjadi saat fase bulan purnama.
 
 **Fun Fact:**
 Bintang yang paling dekat dengan Bumi adalah **Matahari**, jaraknya sekitar 150 juta kilometer.
-'''
+''',
+      'simulation':'moon_phase.dart',
+      
       },
       {
         'title': 'Fisika Bintang',

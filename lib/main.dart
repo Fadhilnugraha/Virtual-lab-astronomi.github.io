@@ -7,6 +7,7 @@ import 'pages/Course/course_page.dart';
 import 'pages/Course/course_detail_page.dart';
 import 'User/user_data.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -78,12 +79,13 @@ class _MyAppState extends State<MyApp>{
         '/course': (context) => CoursePage(isDarkMode: isDarkMode),
         '/courseDetail': (context) {
           final args = 
-          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+          ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
           return CourseDetailPage(
             title: args['title']?? 'Tidak ada judul', 
             description: args ['description']?? 'Tidak ada deskripsi', 
             image: args ['image']?? '',
-            content: args['content']?? 'course belum tersedia', 
+            content: args['content']?.toString() ?? '', 
+            simulation: args['simulation'],
             isDarkMode:isDarkMode,
             );
       },
