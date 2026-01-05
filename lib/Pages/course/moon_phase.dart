@@ -34,7 +34,7 @@ class _MoonPhasePageState extends State<MoonPhasePage> {
           children: [
             CustomPaint(
               size: const Size(200, 200),
-              painter: MoonPainter(angle), // 👈 INI SEKARANG VALID
+              painter: MoonPainter(angle), 
             ),
             const SizedBox(height: 20),
             Text(getPhaseName(angle)),

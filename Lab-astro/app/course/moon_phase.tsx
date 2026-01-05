@@ -20,7 +20,7 @@ export default function MoonPhasePage() {
     return "New Moon";
   };
 
-  // Menghitung rasio lebar elips (1 ke 0 ke -1)
+
   const ratio = Math.cos((angle * Math.PI) / 180);
 
   return (
@@ -29,22 +29,21 @@ export default function MoonPhasePage() {
       
       <View style={styles.centerBox}>
         <View style={[styles.moonContainer, { width: size, height: size }]}>
-          {/* 1. Latar Belakang: Menentukan warna sisi gelap */}
+          {/* Menentukan warna sisi gelap */}
           <View style={[styles.layer, { width: size, height: size, backgroundColor: '#333' }]} />
 
-          {/* 2. Setengah Lingkaran Cahaya: Selalu ada di satu sisi tergantung fase */}
+          {/*  Setengah Lingkaran Cahaya: Selalu ada di satu sisi tergantung fase */}
           <View style={[
             styles.layer, 
             { 
               width: radius, 
               height: size, 
               backgroundColor: '#FFF59D',
-              // Sebelum 180 terang di kanan, setelah 180 terang di kiri
               left: angle <= 180 ? radius : 0 
             }
           ]} />
 
-          {/* 3. Elips Dinamis: Ini yang menciptakan efek lengkungan (sabit/cembung) */}
+          {/*Elips Dinamis: Ini yang menciptakan efek lengkungan (sabit/cembung) */}
           <View style={[
             styles.layer,
             {
@@ -52,8 +51,7 @@ export default function MoonPhasePage() {
               height: size,
               left: (size - Math.abs(ratio) * size) / 2,
               borderRadius: radius,
-              // Jika ratio > 0 (fase awal), elips berwarna sama dengan latar gelap
-              // Jika ratio < 0 (mendekati full), elips berwarna cahaya untuk menambah volume
+
               backgroundColor: ratio > 0 ? '#333' : '#FFF59D',
             }
           ]} />

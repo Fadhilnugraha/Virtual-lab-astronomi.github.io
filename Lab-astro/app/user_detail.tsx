@@ -15,7 +15,7 @@ export default function UserDetailPage() {
 
   useEffect(() => {
     const loadUserData = async () => {
-      // Jika user tidak ditemukan, langsung stop loading dan suruh login
+      
       if (!user) {
         setFetching(false);
         Alert.alert("Error", "Sesi berakhir, silakan login kembali.");
@@ -25,7 +25,7 @@ export default function UserDetailPage() {
 
       try {
         const docRef = doc(db, "users", user.uid);
-        // Tambahkan batas waktu/timeout secara logis
+
         const docSnap = await getDoc(docRef);
         
         if (docSnap.exists()) {
@@ -76,7 +76,7 @@ export default function UserDetailPage() {
     );
   }
 
-  // ... sisa kode return UI sama seperti sebelumnya ...
+ 
   return (
     <ScrollView style={styles.container}>
        <Stack.Screen options={{ title: 'Profil Pengguna' }} />
