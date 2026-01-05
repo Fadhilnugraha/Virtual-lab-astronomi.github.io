@@ -5,6 +5,7 @@ import 'pages/login_pages.dart';
 import 'pages/register_pages.dart';
 import 'pages/Course/course_page.dart';
 import 'pages/Course/course_detail_page.dart';
+import 'pages/Course/moon_phase.dart';
 import 'User/user_data.dart';
 
 
@@ -90,6 +91,7 @@ class _MyAppState extends State<MyApp>{
             );
       },
       '/userData': (context) => ProfilePage(),
+      '/moonPhase': (context) => const MoonPhasePage(),
 
       }
     );
